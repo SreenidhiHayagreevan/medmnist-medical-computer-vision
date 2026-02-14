@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository contains deep learning experiments on standardized biomedical imaging datasets from **MedMNIST**. The project explores 2D and 3D medical image classification using custom CNN architectures, transfer learning, residual networks, explainability techniques (Grad-CAM), and model optimization via quantization.
+This repository contains deep learning - computer vission experiments on standardized biomedical imaging datasets from **MedMNIST**. The project explores 2D and 3D medical image classification using custom CNN architectures, transfer learning, residual networks, explainability techniques (Grad-CAM), and model optimization via quantization.
 
 The objective of this work is to evaluate different deep learning strategies for medical image analysis, benchmark performance using AUC and Accuracy, and analyze model behavior in safety-critical contexts.
 
@@ -14,7 +14,7 @@ The repository includes three main experiments:
 
 ---
 
-# Problem 1: 3D CNN for NoduleMNIST3D / AdrenalMNIST3D
+# 1: 3D CNN for NoduleMNIST3D / AdrenalMNIST3D
 
 ## Goal
 Develop a 3D Convolutional Neural Network from scratch for volumetric medical image classification using MedMNIST3D datasets.
@@ -48,7 +48,7 @@ This experiment demonstrates:
 
 ---
 
-# Problem 2: 2D CNN, Transfer Learning, Grad-CAM & Quantization (ChestMNIST / RetinaMNIST)
+# 2: 2D CNN, Transfer Learning, Grad-CAM & Quantization (ChestMNIST / RetinaMNIST)
 
 ## Goal
 Explore advanced model development techniques for 2D biomedical image classification, including augmentation, transfer learning, explainability, and deployment optimization.
@@ -123,7 +123,7 @@ Quantization enables model compression with minimal accuracy degradation, suppor
 
 ---
 
-# Problem 3: ResNet Architecture from Scratch (MedMNIST)
+# 3: ResNet Architecture from Scratch (MedMNIST)
 
 ## Goal
 Develop a Residual Network (ResNet) architecture from scratch for biomedical image classification.
