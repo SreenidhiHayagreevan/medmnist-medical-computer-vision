@@ -2,151 +2,150 @@
 
 ## Overview
 
-This repository presents a series of Computer Vision experiments on standardized biomedical imaging datasets from MedMNIST. The project focuses on 2D and 3D medical image classification using deep convolutional neural networks, residual architectures, transfer learning, explainable AI techniques (Grad-CAM), and model optimization through quantization.
+This repository contains deep learning experiments on standardized biomedical imaging datasets from **MedMNIST**. The project explores 2D and 3D medical image classification using custom CNN architectures, transfer learning, residual networks, explainability techniques (Grad-CAM), and model optimization via quantization.
 
-The work explores the complete Computer Vision pipeline for medical AI systems:
-- Volumetric (3D) medical image classification
-- 2D radiographic image analysis
-- Transfer learning with pretrained vision models
-- Residual network design
-- Visual explainability for clinical trust
-- Model compression for deployment
+The objective of this work is to evaluate different deep learning strategies for medical image analysis, benchmark performance using AUC and Accuracy, and analyze model behavior in safety-critical contexts.
 
-These experiments simulate real-world medical imaging workflows where accuracy, interpretability, and deployment constraints are critical.
+The repository includes three main experiments:
+
+- 3D CNN for volumetric CT classification
+- 2D CNN with augmentation, transfer learning, Grad-CAM, and quantization
+- ResNet architecture built from scratch for biomedical imaging
 
 ---
 
-# 1: 3D Computer Vision for CT-Based Nodule Classification
+# Problem 1: 3D CNN for NoduleMNIST3D / AdrenalMNIST3D
 
-## Objective
-Develop a 3D Convolutional Neural Network (3D-CNN) for volumetric medical image classification using CT scan data.
+## Goal
+Develop a 3D Convolutional Neural Network from scratch for volumetric medical image classification using MedMNIST3D datasets.
 
 ## Dataset
-- NoduleMNIST3D (lung CT nodules)
-  OR
+- NoduleMNIST3D (lung CT nodules)  
+  OR  
 - AdrenalMNIST3D (adrenal gland CT scans)
 
-These datasets contain 3D biomedical image volumes requiring volumetric convolution operations.
+These datasets consist of 3D biomedical image volumes used for classification tasks.
 
-## Computer Vision Approach
+## What Was Implemented
 
-- Designed a 3D CNN architecture from scratch
-  - 3D Convolution layers (kernel size 3)
-  - Batch Normalization for training stability
+- Custom 3D CNN architecture
+  - Minimum 3 convolutional layers
+  - Batch Normalization after each convolution
   - MaxPooling layers
   - Fully connected layers with Dropout (0.5)
-- Trained for 100+ epochs with Early Stopping
-- Evaluated using Accuracy and AUC
-- Compared against MedMNIST published benchmarks
+- Training for 100+ epochs with Early Stopping
+- Evaluation using Accuracy and AUC
+- Learning curve visualization
+- Performance comparison with MedMNIST benchmark
 
-## CV Concepts Demonstrated
+## Key Learning
 
-- Volumetric (3D) convolution
-- Feature extraction from CT volumes
-- Regularization in deep vision networks
-- Performance benchmarking in medical imaging
+This experiment demonstrates:
+- Handling 3D volumetric medical data
+- Designing CNN architectures from scratch
+- Evaluating medical models using clinically relevant metrics
+- Understanding overfitting and generalization in small biomedical datasets
 
 ---
 
-# 2: Advanced 2D Computer Vision for Radiographic Image Analysis
+# Problem 2: 2D CNN, Transfer Learning, Grad-CAM & Quantization (ChestMNIST / RetinaMNIST)
 
-## Objective
-Explore deep learning techniques for 2D medical image classification, incorporating augmentation, transfer learning, explainability, and deployment optimization.
+## Goal
+Explore advanced model development techniques for 2D biomedical image classification, including augmentation, transfer learning, explainability, and deployment optimization.
 
 ## Dataset
-- ChestMNIST (X-ray images)
-  OR
+- ChestMNIST (X-ray classification)
+  OR  
 - RetinaMNIST (retinal imaging)
 
-These are 2D medical image classification tasks representative of radiology workflows.
+## Part A – Custom Deep CNN + Augmentation
 
----
-
-## Part A – Custom CNN + Image Augmentation
-
-### Computer Vision Implementation
-
-- Built a deep CNN with:
-  - Multiple convolutional layers
+- Designed a CNN with:
+  - At least 3 convolutional layers
   - Batch normalization
   - Dropout regularization
-- Applied image augmentation:
+- Applied image augmentation techniques:
   - Rotation
-  - Horizontal flipping
-  - Scaling / transformations
-- Evaluated model performance with and without augmentation
+  - Flipping
+  - Scaling / other transformations
+- Compared model performance with and without augmentation
+- Evaluated using:
+  - AUC
+  - Accuracy
 
-### CV Insight
-Data augmentation improves generalization and robustness in medical Computer Vision systems where dataset size is limited.
+### Insight
+Augmentation improves robustness and generalization in medical image classification.
 
 ---
 
-## Part B – Transfer Learning with VGG16
+## Part B – Transfer Learning (VGG16)
 
-### Computer Vision Implementation
-
-- Loaded ImageNet-pretrained VGG16
+- Loaded VGG16 pretrained on ImageNet
 - Replaced classifier head with:
   - Global Average Pooling
   - Fully connected layers
   - Final classification layer
-- Compared:
-  - Fully frozen backbone
-  - Partial fine-tuning
+- Compared two strategies:
+  - Freeze all convolutional layers
+  - Freeze partial layers and fine-tune remaining layers
+- Evaluated training stability, convergence speed, and performance
 
-### CV Insight
-Transfer learning leverages pretrained visual feature extractors to improve performance and reduce training time in medical imaging tasks.
+### Insight
+Transfer learning significantly improves performance and training efficiency on small medical datasets.
 
 ---
 
-## Part C – Explainable Computer Vision (Grad-CAM)
+## Part C – Grad-CAM (Explainability)
 
-- Generated Grad-CAM heatmaps
-- Visualized discriminative regions influencing predictions
-- Evaluated whether model attention aligns with meaningful anatomical structures
+- Generated Grad-CAM heatmaps for selected samples
+- Visualized model attention regions
+- Analyzed whether highlighted regions align with meaningful anatomical structures
 
 ### Why This Matters
-Explainability is essential in clinical Computer Vision systems to ensure transparency and build physician trust.
+Explainability is critical in medical AI to ensure model decisions are interpretable and trustworthy.
 
 ---
 
-## Part D – Model Quantization for Vision Deployment
+## Part D – Model Quantization
 
-Applied:
-- Post-training dynamic quantization
+Applied three quantization techniques:
+- Post-training dynamic range quantization
 - Full integer quantization
-- Quantization-aware training
+- Quantization-aware training (QAT)
 
 Compared:
-- Model size
-- Accuracy trade-offs
-- Deployment implications
+- Model size reduction
+- Test accuracy impact
+- Deployment trade-offs
 
-### Deployment Insight
-Quantization enables efficient deployment of Computer Vision models in constrained hardware environments.
+### Insight
+Quantization enables model compression with minimal accuracy degradation, supporting deployment in resource-constrained environments.
 
 ---
 
-# 3: Residual Networks for Deep Computer Vision
+# Problem 3: ResNet Architecture from Scratch (MedMNIST)
 
-## Objective
-Develop a ResNet-style architecture from scratch for medical image classification.
+## Goal
+Develop a Residual Network (ResNet) architecture from scratch for biomedical image classification.
 
-## Computer Vision Implementation
+## Implementation
 
-- Implemented residual blocks:
+- Built residual blocks with:
   - Convolution → BatchNorm → ReLU
   - Skip connections
-- Built multi-stage residual architecture
-- Used Global Average Pooling and dense classifier
-- Evaluated using Accuracy and AUC
+- Constructed full ResNet-style architecture with:
+  - Stacked residual sections
+  - Global Average Pooling
+  - Dense output layer
+- Trained for minimum required epochs
+- Evaluated performance using Accuracy and AUC
 
-## CV Concepts Demonstrated
+## Key Concepts Demonstrated
 
 - Residual learning
-- Gradient flow improvement
-- Deep feature hierarchy construction
-- Stability in deep vision networks
+- Deep network stability
+- Gradient flow improvement via skip connections
+- Comparison of deeper architectures vs standard CNNs
 
 ---
 
@@ -156,23 +155,35 @@ Develop a ResNet-style architecture from scratch for medical image classificatio
 - PyTorch
 - TensorFlow / Keras
 - MedMNIST
+- Matplotlib / Seaborn
 - Grad-CAM
 - TensorFlow Model Optimization Toolkit
 
 ---
 
-# Computer Vision Skills Demonstrated
+# Key Skills Demonstrated
 
 - 2D and 3D medical image processing
 - CNN and ResNet architecture design
-- Transfer learning for vision tasks
-- Explainable AI for medical imaging
-- Model compression for deployment
+- Transfer learning
+- Explainable AI (Grad-CAM)
+- Model quantization & deployment awareness
 - Performance benchmarking (AUC, Accuracy)
-- Early stopping and training stability
+- Early stopping and training stability techniques
 
 ---
 
 # Conclusion
 
-This project demonstrates end-to-end Computer Vision development for medical image analysis, from custom CNN de
+This project explores the full lifecycle of medical image model development:
+
+1. Architecture design (CNN, ResNet)
+2. Training and evaluation
+3. Generalization improvement via augmentation
+4. Transfer learning strategies
+5. Model interpretability using Grad-CAM
+6. Deployment optimization via quantization
+
+The experiments collectively demonstrate practical deep learning applications in biomedical image analysis, emphasizing performance, interpretability, and production readiness.
+
+---
