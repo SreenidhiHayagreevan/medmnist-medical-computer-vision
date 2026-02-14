@@ -1,4 +1,4 @@
-# Computer Vision for Medical Image Analysis using MedMNIST
+# Medical Image Classification & Model Optimization using MedMNIST Dataset
 
 ## Overview
 
