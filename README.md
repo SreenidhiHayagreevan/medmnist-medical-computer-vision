@@ -16,7 +16,7 @@ These experiments simulate real-world medical imaging workflows where accuracy, 
 
 ---
 
-# Problem 1: 3D Computer Vision for CT-Based Nodule Classification
+# 1: 3D Computer Vision for CT-Based Nodule Classification
 
 ## Objective
 Develop a 3D Convolutional Neural Network (3D-CNN) for volumetric medical image classification using CT scan data.
@@ -48,7 +48,7 @@ These datasets contain 3D biomedical image volumes requiring volumetric convolut
 
 ---
 
-# Problem 2: Advanced 2D Computer Vision for Radiographic Image Analysis
+# 2: Advanced 2D Computer Vision for Radiographic Image Analysis
 
 ## Objective
 Explore deep learning techniques for 2D medical image classification, incorporating augmentation, transfer learning, explainability, and deployment optimization.
@@ -127,7 +127,7 @@ Quantization enables efficient deployment of Computer Vision models in constrain
 
 ---
 
-# Problem 3: Residual Networks for Deep Computer Vision
+# 3: Residual Networks for Deep Computer Vision
 
 ## Objective
 Develop a ResNet-style architecture from scratch for medical image classification.
