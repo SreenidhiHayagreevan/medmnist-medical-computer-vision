@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository contains deep learning - computer vission experiments on standardized biomedical imaging datasets from **MedMNIST**. The project explores 2D and 3D medical image classification using custom CNN architectures, transfer learning, residual networks, explainability techniques (Grad-CAM), and model optimization via quantization.
+This repository contains deep learning - computer vision experiments on standardized biomedical imaging datasets from **MedMNIST**. The project explores 2D and 3D medical image classification using custom CNN architectures, transfer learning, residual networks, explainability techniques (Grad-CAM), and model optimization via quantization.
 
 The objective of this work is to evaluate different deep learning strategies for medical image analysis, benchmark performance using AUC and Accuracy, and analyze model behavior in safety-critical contexts.
 
